@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "d0f1e0d1-227c-4cc2-a465-d3090af5e9f5",
+		"name": "CP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1726030"
+	},
+	"item": [
+		{
+			"name": "getStation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://127.0.0.1/getStation.php?estacao=AVEIRO",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"getStation.php"
+					],
+					"query": [
+						{
+							"key": "estacao",
+							"value": "AVEIRO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTimeTable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://127.0.0.1/getTimeTable.php?stationID=9438000&horaInicial=22:57&horaFinal=23:59&servico=IC",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"getTimeTable.php"
+					],
+					"query": [
+						{
+							"key": "stationID",
+							"value": "9438000"
+						},
+						{
+							"key": "horaInicial",
+							"value": "22:57"
+						},
+						{
+							"key": "horaFinal",
+							"value": "23:59"
+						},
+						{
+							"key": "servico",
+							"value": "IC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTrain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://127.0.0.1/getTrain.php?estacao=AVEIRO&trainNumber=723&data=2023-02-14",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"getTrain.php"
+					],
+					"query": [
+						{
+							"key": "estacao",
+							"value": "AVEIRO"
+						},
+						{
+							"key": "trainNumber",
+							"value": "723"
+						},
+						{
+							"key": "data",
+							"value": "2023-02-14"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
