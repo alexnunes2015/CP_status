@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: http://localhost:3000");
     function codificarTiposServico($tipos_servico) {
         $tipos = explode(',', $tipos_servico); // Divide a string em partes separadas por vírgula
         

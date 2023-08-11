@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: http://localhost:3000");
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $estacao = $_GET['estacao']; // obtém o valor da variável "estacao" do GET
         $endpoint = 'https://www.infraestruturasdeportugal.pt/negocios-e-servicos/estacao-nome/';

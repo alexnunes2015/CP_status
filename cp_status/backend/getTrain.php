@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: http://localhost:3000");
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Obtém o valor dos parâmetros GET
         $train_number = $_GET['trainNumber'];

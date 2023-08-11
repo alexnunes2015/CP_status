@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import TimeTable from "../TimeTable/TimeTable";
 
 class StationSelector extends Component {
   state = {
     station: "",
     stationList: [],
+    currentStationID:0
   };
 
   handleChange = (event) => {
@@ -14,39 +16,41 @@ class StationSelector extends Component {
     event.preventDefault();
 
     fetch(
-        `https://www.infraestruturasdeportugal.pt/negocios-e-servicos/estacao-nome/${this.state.station}`,
+        `https://127.0.0.1/getStation.php?estacao=${this.state.station}`,
         {
           method: "GET",
           headers: {
-            Accept: "application/json, text/plain, */*",
+            Accept: "*/*",
           },
         }
       )
         .then((response) => response.json())
-        .then((data) => this.setState({ stationList: data }))
+        .then((data) => this.setState({ stationList: data.response }))
         .catch((error) => console.error(error));
       
   };
 
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Estação"
-          value={this.state.station}
-          onChange={this.handleChange}
-        />
-        <button type="submit">Submit</button>
-        <br />
-        <br />
-        <ul>
+    if(this.state.currentStationID === 0){
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Estação"
+            value={this.state.station}
+            onChange={this.handleChange}
+          />
+          <button type="submit">Submit</button>
+          <br />
+          <br />
           {this.state.stationList.map((station) => (
-            <li key={station.id}>{station.name}</li>
+            <button key={station.NodeID} onClick={() => this.setState({currentStationID: station.NodeID})}>{station.Nome}</button>
           ))}
-        </ul>
-      </form>
-    );
+        </form>
+      );
+    } else {
+      return <TimeTable currentStationID={this.state.currentStationID} />
+    }    
   }
 }
 
